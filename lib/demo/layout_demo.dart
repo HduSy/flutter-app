@@ -96,7 +96,9 @@ class LayoutDemo extends StatelessWidget {
     );
   }
 }
-
+/**
+ * 自定义组件
+ */
 class IconBadge extends StatelessWidget {
   final IconData icon;
   final double size;

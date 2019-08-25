@@ -38,7 +38,9 @@ class ViewDemo extends StatelessWidget {
     );
   }
 }
-
+/**
+ * PageView Demo
+ */
 class PageViewDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -79,7 +81,9 @@ class PageViewDemo extends StatelessWidget {
     );
   }
 }
-
+/**
+ * GridView.count Demo
+ */
 class GridViewDemo extends StatelessWidget {
   List<Widget> _buildTiles(int count) {
     return List.generate(count, (int index) {
@@ -106,6 +110,9 @@ class GridViewDemo extends StatelessWidget {
     );
   }
 }
+/**
+ * GridView.extent Demo
+ */
 class GridViewExtentDemo extends StatelessWidget {
   List<Widget> _buildTiles(int count) {
     return List.generate(count, (int index) {
@@ -133,6 +140,9 @@ class GridViewExtentDemo extends StatelessWidget {
     );
   }
 }
+/**
+ * GridView.builder Demo
+ */
 class GridViewBuilderDemo extends StatelessWidget{
   Widget _gridItemBuilder(BuildContext context,int index){
     return Container(

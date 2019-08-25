@@ -28,7 +28,7 @@ class App extends StatelessWidget {
       theme: ThemeData(
           primarySwatch: Colors.yellow,
           highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
-          splashColor: Colors.white60),
+          splashColor: Colors.white70),
     );
   }
 }
