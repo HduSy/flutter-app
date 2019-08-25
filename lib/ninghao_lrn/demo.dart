@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/demo/drawer_demo.dart';
-import 'package:flutter_app/demo/bottom_navigation_bar_demo.dart';
-import 'package:flutter_app/demo/listview_demo.dart';
-import 'package:flutter_app/demo/basic_demo.dart';
-import 'package:flutter_app/demo/layout_demo.dart';
-import 'package:flutter_app/demo/view_demo.dart';
-import 'package:flutter_app/demo/sliver_demo.dart';
-import 'package:flutter_app/demo/navigator_demo.dart';
+import 'package:flutter_app/demo_up/drawer_demo.dart';
+import 'package:flutter_app/demo_up/bottom_navigation_bar_demo.dart';
+import 'package:flutter_app/demo_up/listview_demo.dart';
+import 'package:flutter_app/demo_up/basic_demo.dart';
+import 'package:flutter_app/demo_up/layout_demo.dart';
+import 'package:flutter_app/demo_up/view_demo.dart';
+import 'package:flutter_app/demo_up/sliver_demo.dart';
+import 'package:flutter_app/demo_up/navigator_demo.dart';
+import 'package:flutter_app/demo_mid/form_demo.dart';
+
 //  挂载根widget
 //void main() => runApp(App());
 
@@ -19,16 +21,20 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
 //      home: Home(),
 //    home: SliverDemo(),
-    home: NavigatorDemo(),
-      initialRoute: '/',
+//    home: NavigatorDemo(),
+      initialRoute: '/form',
       routes: {
-        '/':(context)=>NavigatorDemo(),
-        '/about':(context)=>Page(title: 'About',)
+        '/': (context) => NavigatorDemo(),
+        '/about': (context) => Page(
+              title: 'About',
+            ),
+        '/form': (context) => FormDemo(),
       },
       theme: ThemeData(
           primarySwatch: Colors.yellow,
           highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
-          splashColor: Colors.white70),
+          splashColor: Colors.white70,
+          accentColor: Colors.red),
     );
   }
 }
