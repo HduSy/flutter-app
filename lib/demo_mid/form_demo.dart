@@ -39,11 +39,35 @@ class RegisterDemo extends StatefulWidget {
 class RegisterDemoState extends State<RegisterDemo> {
   final registerFormKey = GlobalKey<FormState>();
   String username, password;
+  bool autoValidate = false;
 
   void submitRegisterForm() {
-    registerFormKey.currentState.save();
-    debugPrint('username: $username');
-    debugPrint('password: $password');
+    if (registerFormKey.currentState.validate()) {
+      registerFormKey.currentState.save();
+      Scaffold.of(context).showSnackBar(
+          SnackBar(content: Text('Registering...'))
+      );
+      debugPrint('username: $username');
+      debugPrint('password: $password');
+    } else {
+      setState(() {
+        autoValidate = true;
+      });
+    }
+  }
+
+  String validateUsername(value) {
+    if (value.isEmpty) {
+      return 'Username is required.';
+    }
+    return null;
+  }
+
+  String validatePassword(value) {
+    if (value.isEmpty) {
+      return 'Password is required.';
+    }
+    return null;
   }
 
   @override
@@ -54,17 +78,21 @@ class RegisterDemoState extends State<RegisterDemo> {
       child: Column(
         children: <Widget>[
           TextFormField(
-            decoration: InputDecoration(labelText: 'UserName:'),
+            decoration: InputDecoration(labelText: 'UserName:', helperText: ''),
             onSaved: (val) {
               username = val;
             },
+            validator: validateUsername,
+            autovalidate: autoValidate,
           ),
           TextFormField(
             obscureText: true,
-            decoration: InputDecoration(labelText: 'PassWord:'),
+            decoration: InputDecoration(labelText: 'PassWord:', helperText: ''),
             onSaved: (val) {
               password = val;
             },
+            validator: validatePassword,
+            autovalidate: autoValidate,
           ),
           SizedBox(
             height: 32.0,
@@ -72,7 +100,9 @@ class RegisterDemoState extends State<RegisterDemo> {
           Container(
               width: double.infinity,
               child: RaisedButton(
-                color: Theme.of(context).primaryColor,
+                color: Theme
+                    .of(context)
+                    .primaryColor,
                 child: Text('Register', style: TextStyle(color: Colors.white)),
                 elevation: 0.0,
                 onPressed: submitRegisterForm,
@@ -88,7 +118,9 @@ class ThemeDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-      color: Theme.of(context).accentColor,
+      color: Theme
+          .of(context)
+          .accentColor,
     );
   }
 }

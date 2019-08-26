@@ -8,6 +8,7 @@ import 'package:flutter_app/demo_up/view_demo.dart';
 import 'package:flutter_app/demo_up/sliver_demo.dart';
 import 'package:flutter_app/demo_up/navigator_demo.dart';
 import 'package:flutter_app/demo_mid/form_demo.dart';
+import 'package:flutter_app/demo_mid/material_components.dart';
 
 //  挂载根widget
 //void main() => runApp(App());
@@ -22,13 +23,14 @@ class App extends StatelessWidget {
 //      home: Home(),
 //    home: SliverDemo(),
 //    home: NavigatorDemo(),
-      initialRoute: '/form',
+      initialRoute: '/mdc',
       routes: {
         '/': (context) => NavigatorDemo(),
         '/about': (context) => Page(
               title: 'About',
             ),
         '/form': (context) => FormDemo(),
+        '/mdc': (context) => MaterialComponents(),
       },
       theme: ThemeData(
           primarySwatch: Colors.yellow,
