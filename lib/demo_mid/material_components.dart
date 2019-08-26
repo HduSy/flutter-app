@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/demo_mid/button_demo.dart';
 import 'package:flutter_app/demo_mid/floating_action_button.dart';
 import 'package:flutter_app/demo_mid/popup_menu_demo.dart';
+import 'package:flutter_app/demo_mid/form_demo.dart';
+import 'package:flutter_app/demo_mid/checkbox_demo.dart';
 
 class MaterialComponents extends StatelessWidget {
   @override
@@ -25,6 +27,14 @@ class MaterialComponents extends StatelessWidget {
           ListItem(
             title: 'PopupMenuDemo',
             page: PopupMenuDemo(),
+          ),
+          ListItem(
+            title: 'FormDemo',
+            page: FormDemo(),
+          ),
+          ListItem(
+            title: 'CheckBoxDemo',
+            page: CheckBoxDemo(),
           )
         ],
       ),
