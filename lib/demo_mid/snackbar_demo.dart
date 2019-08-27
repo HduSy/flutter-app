@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
-class CheckBoxDemo extends StatefulWidget{
+class SnackBarDemo extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return CheckBoxDemoState();
+    return SnackBarDemoState();
   }
 }
-class CheckBoxDemoState extends State<CheckBoxDemo>{
-  bool _checkboxValA = false;
+
+class SnackBarDemoState extends State<SnackBarDemo> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text('CheckBoxDemo'),
+        title: Text('WidgetDemo'),
       ),
       body: Container(
         padding: EdgeInsets.all(16.0),
@@ -24,20 +24,27 @@ class CheckBoxDemoState extends State<CheckBoxDemo>{
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Checkbox(
-                  value: _checkboxValA,
-                  onChanged: (value) {
-                    setState(() {
-                      _checkboxValA = value;
-                    });
-                  },
-                  activeColor: Colors.black,
-                )
+                SnackBarButton(),
               ],
             )
           ],
         ),
       ),
     );
+  }
+}
+
+class SnackBarButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return FlatButton(
+        onPressed: () {
+          Scaffold.of(context).showSnackBar(SnackBar(
+            content: Text('Processing...'),
+            action: SnackBarAction(label: 'Ok', onPressed: () {}),
+          ));
+        },
+        child: Text('open SnackBar'));
   }
 }

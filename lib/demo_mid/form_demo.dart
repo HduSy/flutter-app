@@ -7,7 +7,7 @@ class FormDemo extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text('Form Demo'),
+        title: Text('FormDemo'),
       ),
 //      body: ThemeDemo(),
       body: Theme(

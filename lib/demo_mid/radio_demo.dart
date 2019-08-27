@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
 
-class CheckBoxDemo extends StatefulWidget{
+class RadioDemo extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return CheckBoxDemoState();
+    return RadioDemoState();
   }
 }
-class CheckBoxDemoState extends State<CheckBoxDemo>{
-  bool _checkboxValA = false;
+class RadioDemoState extends State<RadioDemo>{
+  int _groupVal = 0;
+  void _handleRadioValChanged(int val){
+    setState(() {
+      _groupVal = val;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text('CheckBoxDemo'),
+        title: Text('RadioDemo'),
       ),
       body: Container(
         padding: EdgeInsets.all(16.0),
@@ -24,15 +29,18 @@ class CheckBoxDemoState extends State<CheckBoxDemo>{
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Checkbox(
-                  value: _checkboxValA,
-                  onChanged: (value) {
-                    setState(() {
-                      _checkboxValA = value;
-                    });
-                  },
+                Radio(
+                  value: 0,
+                  groupValue: _groupVal,
+                  onChanged: _handleRadioValChanged,
                   activeColor: Colors.black,
-                )
+                ),
+                Radio(
+                  value: 1,
+                  groupValue: _groupVal,
+                  onChanged: _handleRadioValChanged,
+                  activeColor: Colors.black,
+                ),
               ],
             )
           ],

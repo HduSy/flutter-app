@@ -1,38 +1,39 @@
 import 'package:flutter/material.dart';
 
-class CheckBoxDemo extends StatefulWidget{
+class SwitchDemo extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return CheckBoxDemoState();
+    return SwitchDemoState();
   }
 }
-class CheckBoxDemoState extends State<CheckBoxDemo>{
-  bool _checkboxValA = false;
+
+class SwitchDemoState extends State<SwitchDemo> {
+  bool _switchItemA = false;
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text('CheckBoxDemo'),
+        title: Text('SwitchDemo'),
       ),
       body: Container(
         padding: EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Text(_switchItemA? '笑脸':'哭',style: TextStyle(fontSize: 32.0),),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Checkbox(
-                  value: _checkboxValA,
-                  onChanged: (value) {
-                    setState(() {
-                      _checkboxValA = value;
-                    });
-                  },
-                  activeColor: Colors.black,
-                )
+                Switch(
+                    value: _switchItemA,
+                    onChanged: (val) {
+                      setState(() {
+                        _switchItemA = val;
+                      });
+                    })
               ],
             )
           ],
