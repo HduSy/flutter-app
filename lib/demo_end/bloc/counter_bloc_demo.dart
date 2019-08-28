@@ -66,12 +66,12 @@ class CounterProvider extends InheritedWidget {
 class CounterBloc {
   final _counterActionController = StreamController<int>();
 
-  StreamSink<int> get counter => _counterActionController.sink;
+  StreamSink<int> get counter => _counterActionController.sink; // !important
 
   int _count = 0;
   final _counterController = StreamController<int>();
 
-  Stream<int> get count => _counterController.stream;
+  Stream<int> get count => _counterController.stream; // // !important
 
   CounterBloc() {
     _counterActionController.stream.listen(onData);

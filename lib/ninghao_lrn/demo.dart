@@ -28,7 +28,6 @@ import 'package:flutter_app/demo_mid/state-management//stateful_demo.dart';
  * Bloc
  */
 import 'package:flutter_app/demo_end/bloc/bloc_demo.dart';
-import 'package:flutter_app/demo_end/bloc/counter_bloc_demo.dart';
 
 //  挂载根widget
 //void main() => runApp(App());
