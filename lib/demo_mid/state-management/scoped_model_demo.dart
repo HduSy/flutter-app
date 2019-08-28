@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 
+/**
+ * ScopedModel使用方法
+ * 构建selfmodel extends Model
+ * 属性及方法
+ * ScopedModel包裹并提供model属性为selfmodel
+ * ScopedModelDescendant<CounterModel>()
+ */
 class ScopedModelDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

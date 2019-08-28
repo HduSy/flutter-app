@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/demo_end/bloc/bloc_demo.dart';
 import 'package:flutter_app/demo_up/drawer_demo.dart';
 import 'package:flutter_app/demo_up/bottom_navigation_bar_demo.dart';
 import 'package:flutter_app/demo_up/listview_demo.dart';
@@ -9,12 +10,25 @@ import 'package:flutter_app/demo_up/sliver_demo.dart';
 import 'package:flutter_app/demo_up/navigator_demo.dart';
 import 'package:flutter_app/demo_mid/form_demo.dart';
 import 'package:flutter_app/demo_mid/material_components.dart';
+import 'package:flutter_app/demo_end/stream-management/stream_demo.dart';
+
+/**
+ * RxDart
+ */
+import 'package:flutter_app/demo_end/rxdart/rxdart_demo.dart';
+import 'package:flutter_app/demo_end/rxdart/textfield_subject_demo.dart';
 
 /**
  * 状态即数据
  */
 import 'package:flutter_app/demo_mid/state-management//stateless_demo.dart';
 import 'package:flutter_app/demo_mid/state-management//stateful_demo.dart';
+
+/**
+ * Bloc
+ */
+import 'package:flutter_app/demo_end/bloc/bloc_demo.dart';
+import 'package:flutter_app/demo_end/bloc/counter_bloc_demo.dart';
 
 //  挂载根widget
 //void main() => runApp(App());
@@ -29,7 +43,7 @@ class App extends StatelessWidget {
 //      home: Home(),
 //    home: SliverDemo(),
 //    home: NavigatorDemo(),
-      initialRoute: '/stateful-management',
+      initialRoute: '/bloc-demo',
       routes: {
         '/': (context) => NavigatorDemo(),
         '/about': (context) => Page(
@@ -39,6 +53,10 @@ class App extends StatelessWidget {
         '/mdc': (context) => MaterialComponents(),
 //        '/stateless-management': (context) => StatelessDemo(),
         '/stateful-management': (context) => StatefulDemo(),
+        '/stream-demo': (context) => StreamDemo(),
+        '/rxdart': (context) => RxDartDemo(),
+        '/textfield-subject': (context) => TextFieldSubjectDemo(),
+        '/bloc-demo': (context) => BlocDemo(),
       },
       theme: ThemeData(
           primarySwatch: Colors.yellow,

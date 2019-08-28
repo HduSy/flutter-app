@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 
+/**
+ * InheritedWidget使用方法
+ * 创建selfprovider extends InheritedWidget
+ * 属性及构造函数
+ * selfprovider包裹并将属性各个赋值
+ */
 class StatefulDemo extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -66,6 +72,7 @@ class StatefulDemoState extends State<StatefulDemo> {
     );
   }
 }
+
 /**
  * InheritedWidget 把数据直接交给需要的小组件
  */
