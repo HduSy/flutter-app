@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-class StatefulDemo extends StatelessWidget {
+class ScopedModelDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -18,10 +18,12 @@ class StatefulDemo extends StatelessWidget {
           body: Counter(),
           /**
            * ScopedModelDescendant 包裹
+           * Finds a specific [Model] provided by a [ScopedModel] Widget and rebuilds whenever the [Model] changes.
            */
           floatingActionButton: ScopedModelDescendant<CounterModel>(
+            // Provides an option to disable rebuilding when the [Model] changes.
             rebuildOnChange: false, //设置不需要重建漂浮按钮
-            builder: (context, _, model) => FloatingActionButton(
+            builder: (context, child, model) => FloatingActionButton(
                   child: Icon(Icons.add),
                   onPressed: model.increaseCount,
                 ),
@@ -49,7 +51,10 @@ class Counter extends StatelessWidget {
      * ScopedModelDescendant 包裹
      */
     return ScopedModelDescendant<CounterModel>(
-      builder: (context, _, model) => ActionChip(
+      /**
+       * Builds a child for a [ScopedModelDescendant].
+       */
+      builder: (context, child, model) => ActionChip(
           label: Text('$model.count'), onPressed: model.increaseCount),
     );
   }
