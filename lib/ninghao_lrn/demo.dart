@@ -10,6 +10,12 @@ import 'package:flutter_app/demo_up/navigator_demo.dart';
 import 'package:flutter_app/demo_mid/form_demo.dart';
 import 'package:flutter_app/demo_mid/material_components.dart';
 
+/**
+ * 状态即数据
+ */
+import 'package:flutter_app/demo_mid/stateless_demo.dart';
+import 'package:flutter_app/demo_mid/stateful_demo.dart';
+
 //  挂载根widget
 //void main() => runApp(App());
 
@@ -23,7 +29,7 @@ class App extends StatelessWidget {
 //      home: Home(),
 //    home: SliverDemo(),
 //    home: NavigatorDemo(),
-      initialRoute: '/mdc',
+      initialRoute: '/state-management',
       routes: {
         '/': (context) => NavigatorDemo(),
         '/about': (context) => Page(
@@ -31,6 +37,8 @@ class App extends StatelessWidget {
             ),
         '/form': (context) => FormDemo(),
         '/mdc': (context) => MaterialComponents(),
+//        '/state-management': (context) => StatelessDemo(),
+        '/state-management': (context) => StatefulDemo(),
       },
       theme: ThemeData(
           primarySwatch: Colors.yellow,
