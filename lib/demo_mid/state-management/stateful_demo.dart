@@ -21,7 +21,7 @@ class StatefulDemoState extends State<StatefulDemo> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    /*return Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: Text('StateManagementDemo'),
         elevation: 1.0,
@@ -37,31 +37,6 @@ class StatefulDemoState extends State<StatefulDemo> {
           });
           print(_count);
         },
-        onPressed: _increaseCallback,
-      ),
-    );*/
-    /**
-     * CounterProvider 包裹
-     */
-    return CounterProvider(
-      count: _count,
-      increaseCallBack: _increaseCallback,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text('StateManagementDemo'),
-          elevation: 1.0,
-        ),
-//      body: Counter(_count),
-//      body: Counter1(_count, _increaseCallback),
-//        body: CounterWrapper(_count, _increaseCallback),
-        /**
-         * 直接使用Counter2
-         */
-        body: Counter2(),
-        floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
-          onPressed: _increaseCallback,
-        ),
       ),
     );
   }
@@ -121,56 +96,6 @@ class CounterWrapper extends StatelessWidget {
     // TODO: implement build
     return Center(
       child: Counter1(count, increaseCallback),
-    );
-  }
-}
-
-/**
- * InheritedWidget
- */
-class CounterProvider extends InheritedWidget {
-  final int count;
-  final VoidCallback increaseCallBack;
-  final Widget child;
-
-  CounterProvider({this.count, this.increaseCallBack, this.child})
-      : super(child: child);
-
-  /**
-   * 自定义获取InheritedWidget状态的of方法
-   */
-  static CounterProvider of(BuildContext context) =>
-      context.inheritFromWidgetOfExactType(CounterProvider);
-
-  @override
-  bool updateShouldNotify(InheritedWidget oldWidget) {
-    // TODO: implement updateShouldNotify
-    return true;
-  }
-}
-
-class Counter2 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    /**
-     * 利用InheritedWidget的of方法直接从InheritedWidget中获取状态
-     * CounterProvider(child:Counter2())--->Counter2的BuildContext是CounterProvider(child:Counter2())
-     */
-    final count = CounterProvider.of(context).count;
-    final increaseCallback = CounterProvider.of(context).increaseCallBack;
-    // TODO: implement build
-    return Center(
-      child: ActionChip(label: Text('$count'), onPressed: increaseCallback),
-    );
-  }
-}
-
-class CounterWrapper1 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return Center(
-      child: Counter2(),
     );
   }
 }
