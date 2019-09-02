@@ -29,6 +29,18 @@ import 'package:flutter_app/demo_mid/state-management//stateful_demo.dart';
  */
 import 'package:flutter_app/demo_end/bloc/bloc_demo.dart';
 
+/**
+ * http
+ */
+import 'package:flutter_app/demo_end/http/http_demo.dart';
+
+/**
+ * flutter documention
+ */
+import 'package:flutter_app/flutter_doc/router_test_route.dart';
+import 'package:flutter_app/flutter_doc/tip_route.dart';
+import 'package:flutter_app/flutter_doc/route_param.dart';
+
 //  挂载根widget
 //void main() => runApp(App());
 
@@ -42,7 +54,7 @@ class App extends StatelessWidget {
 //      home: Home(),
 //    home: SliverDemo(),
 //    home: NavigatorDemo(),
-      initialRoute: '/bloc-demo',
+      initialRoute: '/open-new-route',
       routes: {
         '/': (context) => NavigatorDemo(),
         '/about': (context) => Page(
@@ -56,6 +68,12 @@ class App extends StatelessWidget {
         '/rxdart': (context) => RxDartDemo(),
         '/textfield-subject': (context) => TextFieldSubjectDemo(),
         '/bloc-demo': (context) => BlocDemo(),
+        '/http-demo': (context) => HttpDemo(),
+//        导航路由
+        '/open-new-route': (context) => RouterTestRoute(),
+//        命名路由
+        'namedroute': (context) => TipRoute(text: 'Tip'),
+        'param': (context)=>RouteParamDemo()
       },
       theme: ThemeData(
           primarySwatch: Colors.yellow,
