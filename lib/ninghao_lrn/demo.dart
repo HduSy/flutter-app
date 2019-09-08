@@ -40,6 +40,9 @@ import 'package:flutter_app/demo_end/http/http_demo.dart';
 import 'package:flutter_app/flutter_doc/router_test_route.dart';
 import 'package:flutter_app/flutter_doc/tip_route.dart';
 import 'package:flutter_app/flutter_doc/route_param.dart';
+import 'package:flutter_app/flutter_doc/TapboxA.dart';
+import 'package:flutter_app/flutter_doc/TapboxB.dart';
+import 'package:flutter_app/flutter_doc/TapboxC.dart';
 
 //  挂载根widget
 //void main() => runApp(App());
@@ -54,7 +57,7 @@ class App extends StatelessWidget {
 //      home: Home(),
 //    home: SliverDemo(),
 //    home: NavigatorDemo(),
-      initialRoute: '/open-new-route',
+      initialRoute: '/mixined-tapboxc',
       routes: {
         '/': (context) => NavigatorDemo(),
         '/about': (context) => Page(
@@ -73,7 +76,10 @@ class App extends StatelessWidget {
         '/open-new-route': (context) => RouterTestRoute(),
 //        命名路由
         'namedroute': (context) => TipRoute(text: 'Tip'),
-        'param': (context)=>RouteParamDemo()
+        'param': (context) => RouteParamDemo(),
+        '/tapboxa': (context) => TapboxA(),
+        '/parent-tapboxb': (context) => ParentWidget(),
+        '/mixined-tapboxc': (context) => ParentWidgetC(),
       },
       theme: ThemeData(
           primarySwatch: Colors.yellow,
